@@ -11,7 +11,7 @@ const productSchema = mongoose.Schema({
     },
     qty: {
         type: Number,
-        required: true
+        required: true  
     }
 })
 

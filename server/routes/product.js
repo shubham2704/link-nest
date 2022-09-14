@@ -65,4 +65,14 @@ router.get('/all',async (req, res) => {
     }
 })
 
+router.get('/multiple', async (req, res) => {
+    const ids = [87878, 10]
+
+    // const results = await products.find().where('product_id').in(ids).exec()
+    const results = await products.find({'product_id': {$in: ids}})
+
+    res.status(200).json(results)
+})
+
+
 module.exports = router
