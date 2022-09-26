@@ -35,7 +35,7 @@ const userSchema = mongoose.Schema({
             link: {
                 type:String,
                 required: true
-            },
+            }
         }
     ]
 })
