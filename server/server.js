@@ -4,8 +4,7 @@ const mongoose = require('mongoose')
 const body_parser = require('body-parser')
 const mogon = require('morgan')
 
-const userRouter = require('./routes/user')
-const productRouter = require('./routes/product')
+const indexRouter = require('./routes/index')
 
 const port = process.env.PORT || 3000
 
@@ -15,11 +14,10 @@ const app = express()
 app.use(body_parser.json());
 app.use(mogon('dev'))
 
-app.use('/user', userRouter)
-app.use('/product', productRouter)
+app.use('/api', indexRouter)
 
 app.get('/', (req, res) => {
-    res.send('welcome to link nest')
+    res.send('welcome to link nest API')
 })
 
 mongoose.connect(

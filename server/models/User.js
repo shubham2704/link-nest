@@ -17,6 +17,7 @@ const userSchema = mongoose.Schema({
     email: {
         type: String,
         required: true,
+        unique: true
     },
     mobile_no: {
         type: String,
@@ -30,14 +31,22 @@ const userSchema = mongoose.Schema({
         {
             name: {
                 type:String,
-                required: true
+                required: true,
             },
             link: {
                 type:String,
                 required: true
+            },
+            status: {
+                type: String,
+                required: true
             }
         }
-    ]
+    ],
+    status: {
+        type: String,
+        required: true
+    }
 })
 
 module.exports = mongoose.model('Users', userSchema)
