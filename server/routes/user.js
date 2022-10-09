@@ -9,6 +9,7 @@ router
     .get('/all', userController.allUsers)
     .get('/:username', userController.singleUser)
     .post('/update', userController.updateUser)
+    .post('/delete', userController.deleteUser)
 
 // router.post('/add', async (req, res) => {
 //     const { username, first_name, last_name, email, mobile_no, password } = req.body

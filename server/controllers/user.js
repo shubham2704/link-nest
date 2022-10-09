@@ -61,12 +61,32 @@ const updateUser = async (req, res) => {
 }
 
 const deleteUser = async (req, res) => {
+    try {
+        const { username } = req.body
+    
+        const delete_user = await Users.updateOne(
+            {
+                username: username
+            },
+            {
+                status: "delete"
+            }
+        )
+
+        res.status(201).json({
+            message: `User ${username} deleted`
+        })
+    } catch (error) {
+        res.status(500).json({
+            message: error.message
+        })
+    }
 
 }
-
 
 module.exports = {
     allUsers,
     singleUser,
-    updateUser
+    updateUser,
+    deleteUser
 }

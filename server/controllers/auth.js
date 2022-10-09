@@ -58,7 +58,6 @@ const login = async (req, res) => {
                 })
             }
         } else {
-            const user =  username | email ?  username : email
             res.status(404).json({
                 message: `User with ${username || email } does not exist`
             })
