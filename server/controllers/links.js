@@ -58,26 +58,26 @@ const addLinks = async (req, res) => {
 const deleteLink = async (req, res) => {
     try {
         const { username, link_name } = req.body
-        // const delete_link = await Users.updateOne(
-        //     {
-        //         username: username,
-        //         links: {
-        //             name: link_name
-        //         }
-        //     },
-        //     {
-        //         links:{
-        //             status: "delete"
-        //         }
-        //     }
-        // )
+        const delete_link = await Users.updateOne(
+            {
+                username: username,
+                "links.name": link_name
+            },
+            {
+                $set: {
+                    "links.$.status": "delete"
+                }
+            }
+        )
 
         res.status(201).json({
             message: 'Link Deleted',
             link: delete_link
         })
     } catch (error) {
-        
+        res.status(500).json({
+            message: error.message
+        })
     }
 }
 
