@@ -52,7 +52,6 @@ const updateUser = async (req, res) => {
 
         res.status(201).json({
             message: `User with username ${username}, Upadted successfully`,
-            user: update_user
         })
     } catch (error) {
         res.status(500).json({
